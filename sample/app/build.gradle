@@ -26,7 +26,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation('co.hyperverge:hypersnapsdk:2.3.3@aar', {
+    implementation('co.hyperverge:hypersnapsdk:2.3.4@aar', {
         transitive = true
         exclude group: 'com.android.support', module: 'appcompat'
     })
