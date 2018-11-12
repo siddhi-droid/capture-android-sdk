@@ -30,9 +30,9 @@ import java.util.Locale;
 import co.hyperverge.hypersnapsdk.R;
 import co.hyperverge.hypersnapsdk.activities.HVDocsActivity;
 import co.hyperverge.hypersnapsdk.activities.HVFaceActivity;
+import co.hyperverge.hypersnapsdk.listeners.APICompletionCallback;
 import co.hyperverge.hypersnapsdk.listeners.CaptureCompletionHandler;
-import co.hyperverge.hypersnapsdk.listeners.CompletionCallback;
-import co.hyperverge.hypersnapsdk.network.HVNetworkHelper;
+ import co.hyperverge.hypersnapsdk.network.HVNetworkHelper;
 import co.hyperverge.hypersnapsdk.objects.Error;
 import co.hyperverge.hypersnapsdk.objects.HVDocConfig;
 import co.hyperverge.hypersnapsdk.objects.HVFaceConfig;
@@ -155,11 +155,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     resultView.setText("RESULT: " + result.toString());
                     try {
-                        HVNetworkHelper.makeOCRCall("https://ind.docs.hyperverge.co/v1-1/readPassport", result.getString("imageUri"), new JSONObject(), new CompletionCallback() {
+                        HVNetworkHelper.makeOCRCall("https://ind.docs.hyperverge.co/v1-1/readPassport", result.getString("imageUri"), new JSONObject(), new APICompletionCallback() {
                             @Override
-                            public void onResult(Error error, JSONObject result) {
+                            public void onResult(JSONObject error, JSONObject result) {
                                 if(error!= null)
-                                    resultView.setText("RESULT: " + error.getErrMsg());
+                                    resultView.setText("RESULT: " + error.toString());
                                 if(result != null) {
                                     resultView.setText("RESULT: " + result.toString());
                                 }
