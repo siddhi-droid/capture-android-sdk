@@ -1,3 +1,6 @@
+### Version 2.3.4
+- Changed signature of functions with HVNetworkHelper
+- Added support for error codes 
 ### Version 2.3.3
 - Added HVNetworkHelper to make network requests within the app.
 
